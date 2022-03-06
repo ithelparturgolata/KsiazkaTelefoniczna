@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Aplikacja Baza Telefonów</title>
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'jquery-3.3.1.slim.js') }}" ></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'popper.min.js') }}" ></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'bootstrap.min.js') }}" ></script>
+</head>
+<body>
+<div class="row">
+    <aside class="col-sm-4">
+        <div class="card">
+            <article class="card-body">
+                <form action="{{ url_for("login") }}" method="post">
+                    <div class="form-group">
+                        <label>Użytkownik</label>
+                        <input name="username" class="form-control" placeholder="" type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hasło</label>
+                        <input name="password" class="form-control" placeholder="******" type="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Zaloguj
+                        </button>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </aside>
+</div>
+</body>
+</html>
