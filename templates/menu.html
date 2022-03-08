@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Aplikacja Baza Telefonów</title>
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'jquery-3.3.1.slim.js') }}" ></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'popper.min.js') }}" ></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'bootstrap.min.js') }}" ></script>
 </head>
 <body>
-$END$
+
+<div style="width: 38rem;">
+    <h5 class="list-group-item">Aplikacja Baza Telefonów</h5>
+    <h5>Witaj {{ username }}</h5>
+     <a class="btn btn-outline-secondary" href="{{ url_for('logout') }}" role="button">Wyloguj</a>
+</div>
+<div class="card" style="width: 38rem;">
+    <ul class="list-group list-group-flush">
+        <a class="btn btn-outline-secondary" href="{{ url_for('ns') }}" role="button">Administracja Na Skarpie</a>
+        <div></div>
+        <a class="btn btn-outline-secondary" href="{{ url_for('nw') }}" role="button">Administracja Na Wyżynach</a>
+        <div></div>
+        <a class="btn btn-outline-secondary" href="{{ url_for('ce') }}" role="button">Administracja Centrum</a>
+    </ul>
+</div>
 </body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Aplikacja Baza Telefonów</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link href='https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<div class="col">
+    <div class="card shadow-sm">
+        <div class="alert alert-primary" role="alert"><a class="btn btn-outline-secondary" href="{{ url_for('base') }}" role="button">Powrót</a></div>
+        <div class="card-body">
+            <table class="table table-hover" id="empTable">
+                <thead>
+                <tr>
+                    <th>Indeks</th>
+                    <th>Nazwa</th>
+                    <th>Adres</th>
+                    <th>Klatka</th>
+                    <th>Telefon</th>
+                    <th>Administracja</th>
+                </tr>
+                </thead>
+            </table>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                <!--<a href="details_2316.html" class="btn btn-outline-warning">Szczegóły</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function() {
+    var empDataTable = $('#empTable').DataTable({
+                'processing': true,
+                'serverSide': true,
+                'serverMethod': 'post',
+                'ajax': {
+                    'url':'/ajaxfile'
+                },
+                'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                searching: true,
+                sort: false,
+                "serverSide": true,
+                'columns': [
+                    { data: 'indeks' },
+                    { data: 'nazwakarty' },
+                    { data: 'adresKarty' },
+                    { data: 'klatkaSchodowa' },
+                    { data: 'telefon' },
+                    { data: 'administracja' },
+                ],
+                                      "language": {
+                "decimal":        "",
+                "emptyTable":     "Brak danych",
+                "info":           "Pokaż _START_ do _END_ z _TOTAL_ kontrahentów",
+                "infoEmpty":      "Pokaż 0 to 0 of 0 kontrahentów",
+                "infoFiltered":   "(przeszukano w _MAX_ kontrahentach)",
+                "infoPostFix":    "",
+                "thousands":      ",",
+                "lengthMenu":     "Pokaż _MENU_ kontrahentów",
+                "loadingRecords": "Ładowanie...",
+                "processing":     "Przetwarzanie...",
+                "search":         "Szukaj:",
+                "zeroRecords":    "Nie ma takiego indeksu/nazwiska ",
+                "paginate": {
+                    "first":      "Pierwszy",
+                    "last":       "Ostatni",
+                    "next":       "Następny",
+                    "previous":   "Poprzedni"
+                },
+                "aria": {
+                    "sortAscending":  ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                }
+            }
+            });
+});
+</script>
+
+</body>
+</html>

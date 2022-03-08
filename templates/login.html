@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} - Aplikacja Baza Telefonów</title>
     <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
@@ -8,28 +7,52 @@
     <script type = "text/javascript" src = "{{ url_for('static', filename = 'popper.min.js') }}" ></script>
     <script type = "text/javascript" src = "{{ url_for('static', filename = 'bootstrap.min.js') }}" ></script>
 </head>
+
 <body>
-<div class="row">
-    <aside class="col-sm-4">
-        <div class="card">
-            <article class="card-body">
-                <form action="{{ url_for("login") }}" method="post">
-                    <div class="form-group">
-                        <label>Użytkownik</label>
-                        <input name="username" class="form-control" placeholder="" type="text" id="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Hasło</label>
-                        <input name="password" class="form-control" placeholder="******" type="password" id="password" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block"> Zaloguj
-                        </button>
-                    </div>
-                </form>
-            </article>
-        </div>
-    </aside>
-</div>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="{{ url_for('static', filename = "logo.png") }}" alt="logo" width="100" />
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw mb-4">Panel Logowania</h1>
+							<form method="POST" class="needs-validation" novalidate="" autocomplete="off" action="{{ url_for("login") }}">
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="email">E-Mail</label>
+									<input id="username" type="email" class="form-control" name="username" value="" required autofocus>
+									<div class="invalid-feedback">
+										Email jest wymagany
+									</div>
+								</div>
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted" for="password">Hasło</label>
+									</div>
+									<input id="password" type="password" class="form-control" name="password" required>
+								    <div class="invalid-feedback">
+								    	Password jest wymagane
+							    	</div>
+								</div>
+								<div class="d-flex align-items-center">
+									<button type="submit" class="btn btn-primary ms-auto" >
+										Zaloguj
+									</button>
+								</div>
+							</form>
+						</div>
+
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2022 &mdash; IT HELP
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'login.js') }}" ></script>
 </body>
 </html>
+
