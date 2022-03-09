@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} - Aplikacja Baza Telefonów</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link href='https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <link href="{{ url_for('static', filename='jquery.dataTables.min.css') }}" rel="stylesheet" type='text/css'>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'jquery-3.5.1.js') }}" ></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'jquery.dataTables.min.js') }}" ></script>
 
 </head>
 <body>
@@ -41,7 +41,7 @@ $(document).ready(function() {
                 'serverSide': true,
                 'serverMethod': 'post',
                 'ajax': {
-                    'url':'/ajaxfile'
+                    'url':'/ajaxfilenw'
                 },
                 'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
                 searching: true,
